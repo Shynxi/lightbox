@@ -7,6 +7,7 @@ const Lightbox = (($) => {
 		title: '',
 		footer: '',
 		showArrows: true, //display the left / right arrows or not
+		wrapping: true, //if true, gallery loops infinitely
 		type: null, //force the lightbox into image / youtube mode. if null, or not image|youtube|vimeo; detect it
 		alwaysShowClose: false, //always show the close button, even if there is no title
 		loadingMessage: '<div class="ekko-lightbox-loader"><div><div></div><div></div></div></div>', // http://tobiasahlin.com/spinkit/
@@ -160,8 +161,12 @@ const Lightbox = (($) => {
 			if (this._$galleryItems.length === 1)
 				return
 
-			if (this._galleryIndex === 0)
-				this._galleryIndex = this._$galleryItems.length - 1
+			if (this._galleryIndex === 0) {
+				if (this._config.wrapping)
+					this._galleryIndex = this._$galleryItems.length - 1
+				else
+					return
+			}
 			else //circular
 				this._galleryIndex--
 
@@ -174,8 +179,12 @@ const Lightbox = (($) => {
 			if (this._$galleryItems.length === 1)
 				return
 
-			if (this._galleryIndex === this._$galleryItems.length - 1)
-				this._galleryIndex = 0
+			if (this._galleryIndex === this._$galleryItems.length - 1) {
+				if (this._config.wrapping)
+					this._galleryIndex = 0
+				else
+					return
+			}
 			else //circular
 				this._galleryIndex++
 
