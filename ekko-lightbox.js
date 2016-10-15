@@ -111,6 +111,7 @@ const Lightbox = (($) => {
 						event.preventDefault()
 						return this.navigateRight()
 					})
+					this.updateNavigation()
 				}
 			}
 
@@ -152,12 +153,13 @@ const Lightbox = (($) => {
 
 			this._galleryIndex = index
 
+			this.updateNavigation()
+
 			this._$element = $(this._$galleryItems.get(this._galleryIndex))
 			this._handle();
 		}
 
 		navigateLeft() {
-
 			if (this._$galleryItems.length === 1)
 				return
 
@@ -175,7 +177,6 @@ const Lightbox = (($) => {
 		}
 
 		navigateRight() {
-
 			if (this._$galleryItems.length === 1)
 				return
 
@@ -190,6 +191,21 @@ const Lightbox = (($) => {
 
 			this._config.onNavigate.call(this, 'right', this._galleryIndex)
 			return this.navigateTo(this._galleryIndex)
+		}
+
+		updateNavigation() {
+			if (!this._config.wrapping) {
+				let $nav = this._$lightboxContainer.find('div.ekko-lightbox-nav-overlay')
+				if (this._galleryIndex === 0)
+					$nav.find('a:first-child').addClass('disabled')
+				else
+					$nav.find('a:first-child').removeClass('disabled')
+
+				if (this._galleryIndex === this._$galleryItems.length - 1)
+					$nav.find('a:last-child').addClass('disabled')
+				else
+					$nav.find('a:last-child').removeClass('disabled')
+			}
 		}
 
 		close() {
