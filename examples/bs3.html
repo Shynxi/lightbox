@@ -5,7 +5,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="../dist/ekko-lightbox.css" rel="stylesheet">
 
         <!-- for documentation only -->
@@ -59,7 +59,7 @@
                 margin-top: 50px;
             }
 
-            h4:not(.modal-title) {
+            h4 {
                 margin-top:25px;
             }
 
@@ -117,6 +117,11 @@
         </style>
     </head>
     <body>
+
+        <div class="bs3-notice">
+            <p><strong>NB!:</strong> This page is intended to demonstrate that the lightbox works with Bootstrap 3 - the CSS classes for the layout use BS4 so this page won't display correctly.</p>
+            <p>Use this page only to check the lightbox works with BS3.</p>
+        </div>
 
         <div class="top-container">
 
@@ -182,13 +187,6 @@
                                     <td>html</td>
                                     <td><code>&#10094;</code> / <code>&#10095;</code></td>
                                     <td>HTML for the arrows</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>wrapping</td>
-                                    <td>boolean</td>
-                                    <td><code>true</code></td>
-                                    <td>Whether the gallery should loop or not</td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -259,11 +257,6 @@
                                 <td>Force the lightbox into image/YouTube mode.</td>
                                 <td><code>data-type="(image|youtube|vimeo)"</code></td>
                             </tr>
-                            <tr>
-                                <td>disable-external-check</td>
-                                <td>Force the lightbox loading into an iframe.</td>
-                                <td><code>data-disable-external-check="(true|false)"</code></td>
-                            </tr>				    
                             </tbody>
                         </table>
                     </div>
@@ -311,7 +304,6 @@
                         <li><a href="#force-type">Force type</a></li>
                         <li><a href="#hidden-elements">Hidden elements</a></li>
                         <li><a href="#remote-content">Remote content</a></li>
-                        <li><a href="#no-wrapping">Image Gallery without wrapping</a></li>
                     </ul>
 
                     <h3 id="single-image">Single Image</h3>
@@ -325,37 +317,6 @@
                     </div>
                     <code class="html" data-code="example-1"></code>
 
-                    <h3 id="image-gallery">Image Gallery</h3>
-                    <p>Galleries are created by adding the <code>data-gallery</code> attribute.</p>
-                    <div data-code="example-2">
-                        <div class="row">
-                            <div class="offset-md-2 col-md-8">
-                                <div class="row">
-                                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
-                                    </a>
-                                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid">
-                                    </a>
-                                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="row">
-                                    <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid">
-                                    </a>
-                                    <a href="https://unsplash.it/1200/768.jpg?image=255" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=255" class="img-fluid">
-                                    </a>
-                                    <a href="https://unsplash.it/1200/768.jpg?image=256" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=256" class="img-fluid">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <code class="html" data-code="example-2"></code>
                     <h3 id="image-gallery">Image Gallery</h3>
                     <p>Galleries are created by adding the <code>data-gallery</code> attribute.</p>
                     <div data-code="example-2">
@@ -407,8 +368,8 @@
                     <h4>Instagram</h4>
                     <p></p>
                     <div data-code="example-3-c">
-                        <p><a href="http://instagram.com/p/BRCYe_wD9pV/" data-toggle="lightbox" data-title="Plug for our new service">Instagram</a></p>
-                        <p>This also works with photos: <a href="//instagram.com/p/BRCdyxnjBsA/" data-toggle="lightbox">Instagram</a></p>
+                        <p><a href="http://instagram.com/p/pZfG1fPfuX/" data-toggle="lightbox" data-title="Plug for our new service">GOtags.co.uk</a></p>
+                        <p>This also works with photos: <a href="//instagram.com/p/0wbypvPfmQ/" data-toggle="lightbox">GOtags.co.uk</a></p>
                     </div>
                     <code data-code="example-3-c" data-trim="all"></code>
                     <h4>Forcing width</h4>
@@ -486,7 +447,7 @@ $(&#39;#open-youtube&#39;).click(function (e) {
                     <p>Neither of these are <code>&lt;a /&gt;</code> tags, so both rely on the <code>data-remote</code> attribute.</p>
                     <div class="row">
                         <div class="offset-md-1 col-md-10">
-                            <div class="row" data-code="example-7" style="height:200px">
+                            <div class="row" data-code="example-7">
                                 <img src="https://unsplash.it/600.jpg?image=259" data-toggle="lightbox" data-remote="https://unsplash.it/1200/768.jpg?image=259" class="img-fluid col-sm-4">
                                 <img src="//i1.ytimg.com/vi/b0jqPvpn3sY/mqdefault.jpg" data-toggle="lightbox" data-remote="//www.youtube.com/embed/b0jqPvpn3sY" class="img-fluid col-sm-4">
                             </div>
@@ -540,47 +501,15 @@ $(&#39;#open-youtube&#39;).click(function (e) {
                     </div>
                     <code data-code="example-10"></code>
 
-
-                    <h3 id="no-wrapping">Image Gallery without wrapping</h3>
-                    <p>Galleries are created by adding the <code>data-gallery</code> attribute.</p>
-                    <div data-code="example-11">
-                        <div class="row">
-                            <div class="offset-md-2 col-md-8">
-                                <div class="row">
-                                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery-11" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
-                                    </a>
-                                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery-11" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid">
-                                    </a>
-                                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery-11" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="row">
-                                    <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox" data-gallery="example-gallery-11" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid">
-                                    </a>
-                                    <a href="https://unsplash.it/1200/768.jpg?image=255" data-toggle="lightbox" data-gallery="example-gallery-11" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=255" class="img-fluid">
-                                    </a>
-                                    <a href="https://unsplash.it/1200/768.jpg?image=256" data-toggle="lightbox" data-gallery="example-gallery-11" class="col-sm-4">
-                                        <img src="https://unsplash.it/600.jpg?image=256" class="img-fluid">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <code class="html" data-code="example-11"></code>
-
                     <p class="footer"><span>Built by me, <a href="https://ashleyd.ws">ashleydw</a></span></p>
                 </div>
             </div>
         </div>
 
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="../dist/ekko-lightbox.js"></script>
 
         <!-- for documentation only -->
@@ -588,27 +517,9 @@ $(&#39;#open-youtube&#39;).click(function (e) {
         <script type="text/javascript">
             $(document).ready(function ($) {
                 // delegate calls to data-toggle="lightbox"
-                $(document).on('click', '[data-toggle="lightbox"]:not([data-gallery="navigateTo"]):not([data-gallery="example-gallery-11"])', function(event) {
+                $(document).on('click', '[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', function(event) {
                     event.preventDefault();
                     return $(this).ekkoLightbox({
-                        onShown: function() {
-                            if (window.console) {
-                                return console.log('Checking our the events huh?');
-                            }
-                        },
-						onNavigate: function(direction, itemIndex) {
-                            if (window.console) {
-                                return console.log('Navigating '+direction+'. Current item: '+itemIndex);
-                            }
-						}
-                    });
-                });
-
-                // delegate calls to data-toggle="lightbox"
-                $(document).on('click', '[data-toggle="lightbox"][data-gallery="example-gallery-11"]', function(event) {
-                    event.preventDefault();
-                    return $(this).ekkoLightbox({
-                        wrapping: false,
                         onShown: function() {
                             if (window.console) {
                                 return console.log('Checking our the events huh?');
